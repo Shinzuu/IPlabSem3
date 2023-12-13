@@ -1,0 +1,10 @@
+#navBar {
+    background-color: aqua !important;
+}
+body {
+    background-color: rgbrgb(211, 167, 167);
+}
+.card {
+    margin: auto;
+    margin-top: 10%;
+}
