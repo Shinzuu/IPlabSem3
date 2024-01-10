@@ -72,12 +72,12 @@
         return x+y;
     }
     function onClick(){
-        let a = document.querySelector("#a");
-        let b = document.querySelector("#b");
+        let a = document.querySelector("#a").value;
+        let b = document.querySelector("#b").value;
         let result =  addTwoN(parseInt(a), parseInt(b));
         let resultTag = document.querySelector("#result");
         resultTag.textContent = a + '+' + b + ' = ' + result;
         return result;
     }
-//incomplete
+
     
