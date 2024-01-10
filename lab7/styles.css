@@ -1,0 +1,14 @@
+* {
+    background-color: beige;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+}
+button {
+    background-color: aqua;
+    display: block;
+    margin: auto;
+    left:auto;
+}
