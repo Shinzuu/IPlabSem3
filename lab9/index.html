@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <header>
+            <!-- place navbar here -->
+        </header>
+        <main >
+            <section id="inputForm" >
+                <form class="col-6 offset-4" action="display.html">
+                    <div class="mb-3" >
+                        <label for="formGroupExampleInput" class="form-label">Name  </label>
+                        <input class="form-control" id="name" name="name" placeholder=" Input name" style="width: 300px;">
+                      </div>
+                      <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label">Age   </label>
+                        <input class="form-control" id="age" name="age" placeholder="Input age" style="width: 300px;">
+                      </div>
+                      <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label">Address</label>
+                        <input class="form-control" id="address" name="address" placeholder="Input address" style="width: 300px;">
+                      </div>
+                      <button type="submit" class="btn btn-primary" id="savebtn" style="width: 100px;" >Submit</button>
+                </form>
+                
+            </section>
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+        <!-- below script for downloading each time -->
+        <!-- <script>
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (e)=>{
+                e.preventDefault();  //prevents auto refresh
+                const formData = new FormData(form);
+                const person = Object.fromEntries(formData);
+
+                console.log(person);
+                // this part stringifies lines and saves it as JSON
+
+                const obj =JSON.stringify(person);
+                var blob = new Blob([obj], {type: 'application/json'});
+                var a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'formData.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                alert('Form data saved successfully');
+            } )
+        </script> -->
+        <script>
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (e)=>{
+                // Read the contents of the JSON file
+                const data = form.readFileSync('data.json');
+                // Parse the JSON data into a JavaScript object
+                const jsonData = JSON.parse(data);
+                // Modify the JavaScript object by adding new data
+                jsonData.users.push({
+                    name: "form.name",
+                    age: "form.age",
+                    address: "form.address"
+                });
+
+                // Convert the JavaScript object back into a JSON string
+                const jsonString = JSON.stringify(jsonData);
+
+                // form.writeFileSync('./data.json', jsonString, 'utf-8', (err) => {
+                //     if (err) throw err;
+                //     console.log('Data added to file');
+                // });
+
+                const update_data = form.readFileSync('data.json');
+                // const updated_jsonData = JSON.parse(update_data);
+            } )
+        </script>
+    </body>
+</html>
