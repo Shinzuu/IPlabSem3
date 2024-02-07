@@ -1,0 +1,27 @@
+[
+    {
+        "name" : "John",
+        "age": 30,
+        "address" : "Dhaka" 
+    },
+    {
+        "name" : "Adam",
+        "age": 20,
+        "address" : "Khulna" 
+    },
+    {
+        "name" : "Alex",
+        "age": 35,
+        "address" : "Chattogram" 
+    },
+    {
+        "name" : "Aroon",
+        "age": 24,
+        "address" : "Rajshahi" 
+    },
+    {
+        "name" : "Jashon",
+        "age": 1,
+        "address" : "Dhaka" 
+    }
+]
